@@ -1,8 +1,8 @@
 const {GuildMember} = require('discord.js');
 
 module.exports = {
-  name: 'skip',
-  description: 'ไม่อยากฟังเพลงต่อไป ข้ามแม่ง',
+  name: 'shuffle',
+  description: 'สับเพลง ฉับๆๆๆๆ',
   async execute(interaction, player) {
     if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
       return void interaction.reply({
@@ -23,11 +23,11 @@ module.exports = {
 
     await interaction.deferReply();
     const queue = player.getQueue(interaction.guildId);
-    if (!queue || !queue.playing) return void interaction.followUp({content: '❌ | ไม่ได้เล่นเพลง'});
-    const currentTrack = queue.current;
-    const success = queue.skip();
-    return void interaction.followUp({
-      content: success ? `✅ | ข้าม **${currentTrack}** ละ` : '❌ | บั๊คโว้ย!',
-    });
+    if (!queue || !queue.playing)
+      return void interaction.followUp({
+        content: '❌ | ไม่ได้เล่นเพลง',
+      });
+    queue.shuffle()
+    return void interaction.followUp({content: 'ฉับๆๆๆๆๆ'});
   },
 };

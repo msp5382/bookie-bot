@@ -1,11 +1,15 @@
 {
   "name": "music-bot",
   "version": "1.0.0",
-  "repository": "https://github.com/TannerGabriel/discord-music-bot.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TannerGabriel/discord-music-bot.git"
+  },
   "description": "A simple discord music bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
   },
   "keywords": [
     "discord",
@@ -16,10 +20,20 @@
   "license": "MIT",
   "dependencies": {
     "@discordjs/opus": "^0.6.0",
+    "discord-music-player": "^8.0.2",
     "discord-player": "^5.0.2",
     "discord.js": "^13.1.0",
     "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.4.0",
     "fluent-ffmpeg": "^2.1.2",
+    "opusscript": "0.0.8",
     "ytdl-core": "^4.9.1"
+  },
+  "bugs": {
+    "url": "https://github.com/TannerGabriel/discord-music-bot/issues"
+  },
+  "homepage": "https://github.com/TannerGabriel/discord-music-bot#readme",
+  "devDependencies": {
+    "node": "^16.9.1"
   }
 }
